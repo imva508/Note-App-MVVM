@@ -1,10 +1,9 @@
-package com.example.varun.reactive
+package com.example.varun.reactive.Data
 
 import android.app.Application
-import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import com.example.varun.reactive.Model.Note
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class NoteRepository(val application: Application) {

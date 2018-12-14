@@ -1,4 +1,4 @@
-package com.example.varun.reactive
+package com.example.varun.reactive.Model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,10 +1,11 @@
-package com.example.varun.reactive
+package com.example.varun.reactive.Data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.varun.reactive.Model.Note
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -37,7 +38,13 @@ abstract class NoteDatabase : RoomDatabase() {
             GlobalScope.launch {
                 val noteDao = instance.noteDao()
                 (1..3).forEach {
-                    noteDao.insert(Note(title = "Note title $it", description = "note description $it", priority = it))
+                    noteDao.insert(
+                        Note(
+                            title = "Note title $it",
+                            description = "note description $it",
+                            priority = it
+                        )
+                    )
                 }
             }
         }

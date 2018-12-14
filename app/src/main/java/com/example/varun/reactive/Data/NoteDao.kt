@@ -1,7 +1,8 @@
-package com.example.varun.reactive
+package com.example.varun.reactive.Data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.varun.reactive.Model.Note
 
 @Dao
 interface NoteDao {

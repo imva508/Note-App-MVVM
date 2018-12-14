@@ -17,14 +17,14 @@ abstract class NoteDatabase : RoomDatabase() {
 
     companion object {
 
-        private lateinit var instance: NoteDatabase
+        private var instance: NoteDatabase? = null
 
         fun getInstance(context: Context): NoteDatabase {
             if (instance == null)
                 instance = Room.databaseBuilder(context.applicationContext, NoteDatabase::class.java, "note_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(callback).build()
-            return instance
+            return instance!!
         }
 
         private val callback = object : RoomDatabase.Callback() {
@@ -36,7 +36,7 @@ abstract class NoteDatabase : RoomDatabase() {
 
         private fun addToDatabase() {
             GlobalScope.launch {
-                val noteDao = instance.noteDao()
+                val noteDao = instance!!.noteDao()
                 (1..3).forEach {
                     noteDao.insert(
                         Note(
